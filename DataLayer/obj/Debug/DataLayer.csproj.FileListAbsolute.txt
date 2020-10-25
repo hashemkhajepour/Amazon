@@ -1,0 +1,14 @@
+E:\Amazon\Amazon\DataLayer\bin\Debug\DataLayer.dll.config
+E:\Amazon\Amazon\DataLayer\bin\Debug\DataLayer.dll
+E:\Amazon\Amazon\DataLayer\bin\Debug\DataLayer.pdb
+E:\Amazon\Amazon\DataLayer\bin\Debug\EntityFramework.dll
+E:\Amazon\Amazon\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\Amazon\Amazon\DataLayer\bin\Debug\EntityFramework.xml
+E:\Amazon\Amazon\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\Amazon\Amazon\DataLayer\obj\Debug\DataLayer.csprojAssemblyReference.cache
+E:\Amazon\Amazon\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+E:\Amazon\Amazon\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+E:\Amazon\Amazon\DataLayer\obj\Debug\DataLayer.dll
+E:\Amazon\Amazon\DataLayer\obj\Debug\DataLayer.pdb
+E:\Amazon\Amazon\DataLayer\obj\Debug\DataLayer.Migrations.Initial_Database.resources
+E:\Amazon\Amazon\DataLayer\obj\Debug\DataLayer.csproj.GenerateResource.cache
