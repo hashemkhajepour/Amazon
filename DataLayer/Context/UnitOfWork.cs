@@ -22,7 +22,32 @@ namespace DataLayer
                 return _userRepository;
             }
         }
-        
+
+        private Generic_Repo_Amazon<Roles> _rolesRepository;
+        public Generic_Repo_Amazon<Roles> RolesRepository
+        {
+            get
+            {
+                if (_rolesRepository == null)
+                {
+                    _rolesRepository = new Generic_Repo_Amazon<Roles>(db);
+                }
+                return _rolesRepository;
+            }
+        }
+
+        private IUserRepository _usersRepository;
+        public IUserRepository UsersRepository
+        {
+            get
+            {
+                if (_usersRepository == null)
+                {
+                    _usersRepository = new UserRepository(db);
+                }
+                return _usersRepository;
+            }
+        }
         public void Save()
         {
             db.SaveChanges();

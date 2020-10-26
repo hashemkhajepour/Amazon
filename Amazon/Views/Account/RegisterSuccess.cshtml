@@ -1,0 +1,12 @@
+﻿@model DataLayer.Users
+@{
+    ViewBag.Title = "موفقیت ثبت نام";
+    Layout = "~/Views/Shared/_DefualtLayout.cshtml";
+}
+
+<div class="alert alert-success" dir="rtl">
+    <h3>@Model.UserName عزیز، با تشکر از ثبت نام شما در آمازون</h3>
+    <p>لینک فعال سازی به ایمیل @Model.Email ارسال شد. برای فعال سازی حساب کاربری خود روی آن کلیک کنید.</p>
+</div>
+
+

@@ -13,5 +13,10 @@ namespace Amazon.Controllers
         {
             return View();
         }
+        public ActionResult Slider()
+        {
+            return PartialView();
+        }
+
     }
 }

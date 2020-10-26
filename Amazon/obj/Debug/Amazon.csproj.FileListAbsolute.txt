@@ -83,3 +83,5 @@ E:\Amazon\Amazon\Amazon\obj\Debug\Amazon.csproj.CoreCompileInputs.cache
 E:\Amazon\Amazon\Amazon\obj\Debug\Amazon.csproj.CopyComplete
 E:\Amazon\Amazon\Amazon\obj\Debug\Amazon.dll
 E:\Amazon\Amazon\Amazon\obj\Debug\Amazon.pdb
+E:\Amazon\Amazon\Amazon\bin\EntityFramework.SqlServer.dll
+E:\Amazon\Amazon\Amazon\bin\EntityFramework.SqlServer.xml
