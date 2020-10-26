@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\MyAmazon_Context.cs" />
+    <Compile Include="Context\UnitOfWork.cs" />
+    <Compile Include="GenericRepository\Generic_Repo_Amazon.cs" />
     <Compile Include="Migrations\202010252154212_Initial_Database.cs" />
     <Compile Include="Migrations\202010252154212_Initial_Database.designer.cs">
       <DependentUpon>202010252154212_Initial_Database.cs</DependentUpon>
