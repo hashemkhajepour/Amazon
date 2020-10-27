@@ -73,7 +73,7 @@ namespace Amazon.Controllers
         }
         [Route("Login")]
         [HttpPost]
-        public ActionResult Login(LoginViewModel login ,string ReturnUrl="")
+        public ActionResult Login(LoginViewModel login ,string ReturnUrl="/")
         {
             if (ModelState.IsValid)
             {
@@ -98,5 +98,68 @@ namespace Amazon.Controllers
             }
             return View();
         }
+       
+        [Route("logout")]
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("/");
+        }
+        [Route("forgotPassword")]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [Route("forgotPassword")]
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordViewModel forgot)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = db.UserRepository.Get(u => u.Email == forgot.Email.Trim().ToLower()).SingleOrDefault();
+                if(user != null)
+                {
+                    if (user.IsActive)
+                    {
+                        string body = PartialToStringClass.RenderPartialView("ManageEmails", "RecoveryPassword", user);
+                        SendEmail.Send(forgot.Email, "بازیابی کلمه عبور آمازون", body);
+                        return View("SuccessForgotPassword", user);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Email", "حساب کاربری شما فعال نیست");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "کاربری با ایمیل وارد شده یافت نشد");
+                }
+            }
+            return View();
+        }
+   
+        public ActionResult RecoveryPassword(string id)
+        {
+   
+            return View();
+        }
+        [HttpPost]
+        public ActionResult RecoveryPassword(RecoveryPasswordViewModel recovery,string id)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = db.UserRepository.Get(u => u.ActiveCode == id).SingleOrDefault();
+                if(user == null)
+                {
+                    return HttpNotFound();
+                }
+                user.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(recovery.Password, "MD5");
+                user.ActiveCode = Guid.NewGuid().ToString();
+                db.Save();
+            }
+            return Redirect("/Login?recovery=true");
+        }
     }
+
+   
 }

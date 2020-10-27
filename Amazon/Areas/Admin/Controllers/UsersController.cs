@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using DataLayer;
 
 namespace Amazon.Areas.Admin.Controllers
@@ -45,13 +46,17 @@ namespace Amazon.Areas.Admin.Controllers
 
         // POST: Admin/Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "UserID,RoleID,UserName,Email,Password,ActiveCode,IsActive,RegisterDate")] Users users)
         {
             if (ModelState.IsValid)
             {
+                
+                users.ActiveCode = Guid.NewGuid().ToString();
+                users.RegisterDate = DateTime.Now;
+                users.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(users.Password, "MD5");
                 db.UserRepository.Insert(users);
                 db.Save();
                 return RedirectToAction("Index");

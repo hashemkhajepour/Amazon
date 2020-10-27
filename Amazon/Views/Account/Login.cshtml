@@ -19,6 +19,12 @@
                 <p>شما مجوز ورود به بخش درخواست شده را ندارید</p>
             </div>
         }
+        @if(Request.QueryString["recovery"] != null)
+        {
+            <div class="alert alert-success">
+                <p>کلمه عبور با موفقیت تغییر کرد. می توانید وارد حساب خود شوید</p>
+            </div>
+        }
         <div class="container">
             <h4 style="color:darkblue">ورود به آمازون</h4>
             <hr style="border-top:1px solid red" />
@@ -50,7 +56,11 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <div class="col-lg-offset-1">
+                        <a href="/forgotPassword">کلمه عبور خود را فراموش کرده ام</a>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-md-11">
                         <input type="submit" value="ورود به سایت" class="btn btn-success" />

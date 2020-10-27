@@ -50,9 +50,9 @@
             @item.RegisterDate.ToShamsi()
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserID })
+            <a href="/Admin/Users/Edit/@item.UserID" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
+            <a href="@Url.Action("Delete",new { id = item.UserID })" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+
         </td>
     </tr>
 }

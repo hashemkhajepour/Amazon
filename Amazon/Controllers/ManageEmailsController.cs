@@ -13,5 +13,9 @@ namespace Amazon
         {
             return PartialView();
         }
+        public ActionResult RecoveryPassword()
+        {
+            return PartialView();
+        }
     }
 }
